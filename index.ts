@@ -9,7 +9,7 @@ const startServer = async () => {
   connectDatabase();
 
   const app= express() as any
-  const port: number = 3000;
+  const port: number = 3001;
   
   // Graphql
   const apolloServer = new ApolloServer({

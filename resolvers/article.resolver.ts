@@ -5,15 +5,15 @@ import Category from "../models/category.model";
 export const resolversArticle = {
     Query: {
       getListArticle:async(_,arg)=>{    
-        const {sortKey="title",sortValue="desc", limitItems=2,page=1}=arg
+        const {sortKey="title",sortValue="desc", limitItems=2,page=1,filterKey,filterValue}=arg
         const sort={};
+        const filter={};
+        if(filterKey && filterValue){ filter[filterKey]=filterValue}
         const skip=(page-1)* limitItems;
         if(sortKey && sortValue){
           sort[sortKey]=sortValue
         }
-        const article=await Article.find({
-          deleted:false
-        }).limit(limitItems).skip(skip).sort(sort)
+        const article=await Article.find(filter).limit(limitItems).skip(skip).sort(sort)
         return article
       },
 
