@@ -22,7 +22,7 @@ const index_typeDefs_1 = require("./typeDefs/index.typeDefs");
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     (0, database_1.connectDatabase)();
     const app = (0, express_1.default)();
-    const port = 3001;
+    const port = 3000;
     const apolloServer = new apollo_server_express_1.ApolloServer({
         typeDefs: index_typeDefs_1.typeDefs,
         resolvers: index_resolver_1.resolvers
